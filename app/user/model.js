@@ -23,7 +23,7 @@ let userSchema = Schema({
         maxlength: [255, 'Panjang maksimal 255 karakter'],
     },
 
-    passord: {
+    password: {
         type: String,
         required: [true, 'Password harus diisi'],
         maxlength: [255, 'Panjang maksimal 255 karakter'],
