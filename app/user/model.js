@@ -68,4 +68,5 @@ userSchema.pre('save', function(next){
 
 userSchema.plugin(AutoIncrement, {inc_field: 'customer_id'})
 
-module.exports = model('User', userSchema);
+const users = mongoose.model('User', userSchema) 
+module.exports = users;

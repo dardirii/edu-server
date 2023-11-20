@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
+const { decodeToken } = require('./middlewares')
 const productRoute = require('./app/product/router')
 const categoryRoute = require('./app/category/router')
 const tagRoute = require('./app/tag/router')
@@ -16,12 +17,14 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(decoeToken());
 
 app.use('/auth', authRoute)
 app.use('/api', productRoute)
