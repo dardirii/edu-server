@@ -1,6 +1,7 @@
 const { police_check } = require('../../middlewares');
 
 const router = require('express').Router();
+const deliveryAddressController = require('./controller');
 
 router.post('/delivery-addresses',
     police_check('create', 'DeliveryAddress'),
